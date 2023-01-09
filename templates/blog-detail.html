@@ -1,5 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+
+
 {% block content %}
 
 
@@ -17,7 +19,7 @@
             </a>
 
             <span class="stext-109 cl4">
-				{{ object.title }}
+				{{ object.title|title }}
 			</span>
         </div>
     </div>
@@ -31,7 +33,7 @@
                     <div class="p-r-45 p-r-0-lg">
                         <!--  -->
                         <div class="wrap-pic-w how-pos5-parent">
-                            <img src="{{ object.image.url }}" alt="IMG-BLOG">
+                            <img src="{{ object.banner.url }}" alt="IMG-BLOG">
 
                             <div class="flex-col-c-m size-123 bg9 how-pos5">
 								<span class="ltext-107 cl2 txt-center">
@@ -82,7 +84,7 @@
 
                             <div class="flex-w size-217">
                                 {% for tag in object.tag.values %}
-                                    <a href="#"
+                                    <a href="{% url 'blogs:posts' %}?tag={{ tag.name }}"
                                        class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                                         {{ tag.name }}
                                     </a>
