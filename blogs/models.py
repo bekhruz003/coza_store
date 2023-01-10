@@ -44,17 +44,4 @@ class PostModel(models.Model):
         verbose_name_plural = _('posts')
 
 
-class CommentModel(models.Model):
-    name = models.CharField(max_length=255, verbose_name=_('name'))
-    email = models.EmailField(verbose_name=_('email'))
-    website = models.URLField(verbose_name=_('website'))
-    comment = models.TextField(verbose_name=_('comment'))
-    post = models.ForeignKey(PostModel, on_delete=models.CASCADE, related_name='comments', verbose_name=_('post'))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
 
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _('comment')
-        verbose_name_plural = _('comments')

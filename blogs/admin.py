@@ -18,13 +18,6 @@ class PostModelAdmin(admin.ModelAdmin):
     autocomplete_fields = ['auther', 'tag']
 
 
-@admin.register(CommentModel)
-class CommentModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'website']
-    list_display_links = ['name', 'email', 'website']
-    search_fields = ['name']
-
-
 @admin.register(AutherModel)
 class AutherModelAdmin(admin.ModelAdmin):
     list_display = ['full_name']

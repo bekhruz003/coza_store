@@ -7,7 +7,7 @@
 
     <!-- breadcrumb -->
     <div class="container">
-        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-80 p-lr-0-lg">
             <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
                 Home
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
@@ -62,10 +62,6 @@
 {#									{{ object.tag }}#}
 {#									<span class="cl12 m-l-4 m-r-6">|</span>#}
 {#								</span>#}
-
-								<span>
-									8 Comments
-								</span>
 							</span>
 
                             <h4 class="ltext-109 cl2 p-b-28">
@@ -93,41 +89,42 @@
                         </div>
 
                         <!--  -->
-                        <div class="p-t-40">
-                            <h5 class="mtext-113 cl2 p-b-12">
-                                Leave a Comment
-                            </h5>
-
-                            <p class="stext-107 cl6 p-b-40">
-                                Your email address will not be published. Required fields are marked *
-                            </p>
-
-                            <form>
-                                <div class="bor19 m-b-20">
-                                <textarea class="stext-111 cl2 plh3 size-124 p-lr-18 p-tb-15" name="cmt"
-                                          placeholder="Comment..."></textarea>
-                                </div>
-
-                                <div class="bor19 size-218 m-b-20">
-                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="name"
-                                           placeholder="Name *">
-                                </div>
-
-                                <div class="bor19 size-218 m-b-20">
-                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="email"
-                                           placeholder="Email *">
-                                </div>
-
-                                <div class="bor19 size-218 m-b-30">
-                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="web"
-                                           placeholder="Website">
-                                </div>
-
-                                <button class="flex-c-m stext-101 cl0 size-125 bg3 bor2 hov-btn3 p-lr-15 trans-04">
-                                    Post Comment
-                                </button>
-                            </form>
-                        </div>
+{#                        <div class="p-t-40">#}
+{#                            <h5 class="mtext-113 cl2 p-b-12">#}
+{#                                Leave a Comment#}
+{#                            </h5>#}
+{##}
+{#                            <p class="stext-107 cl6 p-b-40">#}
+{#                                Your email address will not be published. Required fields are marked *#}
+{#                            </p>#}
+{##}
+{#                            <form action="{% url 'blogs:comment' pk=object.pk %}" method="post">#}
+{#                                {% csrf_token %}#}
+{#                                <div class="bor19 m-b-20">#}
+{#                                <textarea class="stext-111 cl2 plh3 size-124 p-lr-18 p-tb-15" name="cmt"#}
+{#                                          placeholder="Comment..."></textarea>#}
+{#                                </div>#}
+{##}
+{#                                <div class="bor19 size-218 m-b-20">#}
+{#                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="name"#}
+{#                                           placeholder="Name *">#}
+{#                                </div>#}
+{##}
+{#                                <div class="bor19 size-218 m-b-20">#}
+{#                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="email"#}
+{#                                           placeholder="Email *">#}
+{#                                </div>#}
+{##}
+{#                                <div class="bor19 size-218 m-b-30">#}
+{#                                    <input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="phone"#}
+{#                                           placeholder="Phone *">#}
+{#                                </div>#}
+{##}
+{#                                <button class="flex-c-m stext-101 cl0 size-125 bg3 bor2 hov-btn3 p-lr-15 trans-04">#}
+{#                                    Post Comment#}
+{#                                </button>#}
+{#                            </form>#}
+{#                        </div>#}
                     </div>
                 </div>
 

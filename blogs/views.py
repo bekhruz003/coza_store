@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views.generic import ListView, DetailView, CreateView
 from .models import PostModel
 
 
@@ -17,3 +17,4 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = PostModel
     template_name = 'blog-detail.html'
+
