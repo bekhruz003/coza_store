@@ -10,7 +10,7 @@
         <div class="wrap-slick1">
             <div class="slick1">
                 {% for banner in banners %}
-                    <div class="item-slick1" style="background-image: url({% static 'images/slide-01.jpg' %});">
+                    <div class="item-slick1" style="background-image: url({{ banner.image.url }});">
                         <div class="container h-full">
                             <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
                                 <div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
