@@ -1,3 +1,5 @@
+import decimal
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -31,7 +33,7 @@ class ProductModel(models.Model):
     title = models.CharField(max_length=60, verbose_name=_('title'))
     short_description = models.CharField(max_length=255, verbose_name=_('short description'))
     long_description = RichTextUploadingField(verbose_name=_('long description'))
-    price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name=_('price'))
+    price = models.FloatField(verbose_name=_('price'))
     discount = models.PositiveSmallIntegerField(default=0, verbose_name=_('discount'))
     main_image = models.ImageField(upload_to='products/', verbose_name=_('main image'))
     category = models.ForeignKey(CategoryModel, on_delete=models.RESTRICT, related_name='products',
