@@ -9,7 +9,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['banners'] = BannerModel.objects.filter(is_active=True)
+        data['banners'] = BannerModel.objects.filter(is_active=True).order_by('-id')
         return data
 
 

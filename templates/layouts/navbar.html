@@ -47,14 +47,9 @@
                             {#                            </ul>#}
                         </li>
 
-                        <li>
-                            <a href="product.html">Shop</a>
+                        <li class="{% if request.path == '/shop/' %}active-menu{% endif %}">
+                            <a href="{% url 'shop:home' %}">Shop</a>
                         </li>
-
-                        {#                        <li class="label1" data-label1="hot">#}
-                        {#                            <a href="shoping-cart.html">Features</a>#}
-                        {#                        </li>#}
-
                         <li class="{% if request.path == '/blog/' %}active-menu{% endif %}">
                             <a href="{% url 'blogs:posts' %}">Blog</a>
                         </li>
@@ -148,7 +143,7 @@
         </ul>
 
         <ul class="main-menu-m">
-            <li>
+            <li class="{% if request.path == '/' %}active-menu{% endif %}">
                 <a href="{% url 'pages:home' %}">Home</a>
                 {#                <ul class="sub-menu-m">#}
                 {#                    <li><a href="index.html">Homepage 1</a></li>#}
@@ -160,15 +155,15 @@
 					</span>
             </li>
 
-            <li>
-                <a href="product.html">Shop</a>
+            <li class="{% if request.path == '/shop/' %}active-menu{% endif %}">
+                <a href="{% url 'shop:home' %}">Shop</a>
             </li>
 
             {#            <li>#}
             {#                <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>#}
             {#            </li>#}
 
-            <li>
+            <li class="{% if request.path == '/blog/' %}active-menu{% endif %}">
                 <a href="{% url 'blogs:posts' %}">Blog</a>
             </li>
 
@@ -176,7 +171,7 @@
                 <a href="about.html">About</a>
             </li>
 
-            <li>
+            <li class="{% if request.path == '/contact/' %}active-menu{% endif %}">
                 <a href="{% url 'pages:contact' %}">Contact</a>
             </li>
         </ul>
