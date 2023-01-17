@@ -2025,6 +2025,14 @@ input.num-product::-webkit-inner-spin-button {
   transform: scaleX(1);
 }
 
+.product_pagination {
+  text-align: center;
+  position: relative;
+  border-bottom-style: dashed;
+  border-color: #0b0b0b;
+  border-radius: 500px;
+}
+
 .block1-txt:hover .block1-link {
   -webkit-transform: translateY(0%);
   -moz-transform: translateY(0%);
