@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import ProductModel
 
 
@@ -14,3 +14,8 @@ class ShopView(ListView):
         if search:
             qs = qs.filter(title__icontains=search)
         return qs
+
+
+class ProductDetailView(DetailView):
+    model = ProductModel
+    template_name = 'product-detail.html'
