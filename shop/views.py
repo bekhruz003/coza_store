@@ -19,3 +19,8 @@ class ShopView(ListView):
 class ProductDetailView(DetailView):
     model = ProductModel
     template_name = 'product-detail.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data()
+        data['products'] = ProductModel.objects.all().exclude(self.object)[:4]
+        return data
