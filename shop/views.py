@@ -8,4 +8,9 @@ class ShopView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        return ProductModel.objects.all()
+        qs = ProductModel.objects.all()
+
+        search = self.request.GET.get('search')
+        if search:
+            qs = qs.filter(title__icontains=search)
+        return qs
