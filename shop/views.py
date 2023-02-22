@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import ProductModel
+from .models import ProductModel, ProductTagModel
 
 
 class ShopView(ListView):
@@ -14,6 +14,11 @@ class ShopView(ListView):
         if search:
             qs = qs.filter(title__icontains=search)
         return qs
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data()
+        data['tags'] = ProductTagModel.objects.all()
+        return data
 
 
 class ProductDetailView(DetailView):
