@@ -22,5 +22,5 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data()
-        data['products'] = ProductModel.objects.all().exclude(self.object)[:4]
+        data['products'] = ProductModel.objects.all().exclude(id=self.object.pk)[:4]
         return data
