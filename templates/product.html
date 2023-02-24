@@ -9,29 +9,15 @@
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-70">
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                        All Products
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                        Women
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                        Men
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                        Bag
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                        Shoes
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                        Watches
-                    </button>
+                    {#                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">#}
+                    {#                        categories :#}
+                    {#                    </button>#}
+                    {% for cat in categories %}
+                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                            <a href="?cat={{ cat.pk }}"
+                               class="{% if request.GET.cat == cat.pk|stringformat:'i' %}text-dark{% endif %}">{{ cat.name }}</a>
+                        </button>
+                    {% endfor %}
                 </div>
 
                 <div class="flex-w flex-c-m m-tb-10">
@@ -226,8 +212,9 @@
 
                             <div class="flex-w p-t-4 m-r--5">
                                 {% for tag in tags %}
-                                    <a href="#"
-                                       class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    <a href="?tag={{ tag.pk }}"
+                                       class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5
+                                        {% if request.GET.tag == tag.pk|stringformat:'i' %}bg-dark text-white{% endif %}">
                                         {{ tag.name }}
                                     </a>
                                 {% endfor %}
@@ -290,7 +277,7 @@
                 <div class="col-lg-12">
                     <div class="product_pagination">
                         {% for page in page_obj.paginator.page_range %}
-                            <a class="{% if page == page_obj.number %}active{% endif %}"
+                            <a class="{% if page == page_obj.number %}active{% endif %} text-dark"
                                href="?page={{ page }}">{{ page }}</a>
                         {% endfor %}
                     </div>
