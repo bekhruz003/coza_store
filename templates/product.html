@@ -14,7 +14,7 @@
                     {#                    </button>#}
                     {% for cat in categories %}
                         <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                            <a href="?cat={{ cat.pk }}"
+                            <a onclick="addUrlParameter('cat', {{ cat.pk }} )" href="?cat={{ cat.pk }}"
                                class="{% if request.GET.cat == cat.pk|stringformat:'i' %}text-dark{% endif %}">{{ cat.name }}</a>
                         </button>
                     {% endfor %}
@@ -288,4 +288,12 @@
 
 
 
+{% endblock %}
+{% block extra_js %}
+    <script>
+        function addUrlParameter(name, value) {
+            let searchParameter = new URLSearchParams(window.location.search)
+            console.log(searchParameter)
+        }
+    </script>
 {% endblock %}
