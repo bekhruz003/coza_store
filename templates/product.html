@@ -212,7 +212,7 @@
 
                             <div class="flex-w p-t-4 m-r--5">
                                 {% for tag in tags %}
-                                    <a href="?tag={{ tag.pk }}"
+                                    <a onclick="addUrlParameter('tag', {{ tag.pk }} )"
                                        class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5
                                         {% if request.GET.tag == tag.pk|stringformat:'i' %}bg-dark text-white{% endif %}">
                                         {{ tag.name }}
@@ -293,7 +293,12 @@
     <script>
         function addUrlParameter(name, value) {
             let searchParameter = new URLSearchParams(window.location.search)
-            console.log(searchParameter)
+            if (searchParameter.has(name) && searchParameter.get(name) == value) {
+                searchParameter.delete(name)
+            } else {
+                searchParameter.set(name, value)
+            }
+            window.location.search = searchParameter.toString()
         }
     </script>
 {% endblock %}
