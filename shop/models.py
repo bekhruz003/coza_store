@@ -29,6 +29,18 @@ class ProductTagModel(models.Model):
         verbose_name_plural = 'tags'
 
 
+class ColorModel(models.Model):
+    code = models.CharField(max_length=60, verbose_name=_('code'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
+
+    def __str__(self):
+        return self.code
+
+    class Meta:
+        verbose_name = 'color'
+        verbose_name_plural = 'colors'
+
+
 class ProductModel(models.Model):
     title = models.CharField(max_length=60, verbose_name=_('title'))
     short_description = models.CharField(max_length=255, verbose_name=_('short description'))
@@ -41,6 +53,9 @@ class ProductModel(models.Model):
     tags = models.ManyToManyField(ProductTagModel,
                                   related_name='products',
                                   verbose_name=_('tags'))
+    colors = models.ManyToManyField(ColorModel,
+                                    related_name='products',
+                                    verbose_name=_('colors'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
 
     def get_price(self):
